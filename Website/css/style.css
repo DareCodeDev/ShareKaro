@@ -1,0 +1,225 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+*::selection {
+  color: rgb(77, 255, 145);
+  background-color: #fff;
+}
+
+:root {
+  --main: #0e9f6e;
+  --s-main: rgb(159, 255, 196);
+  --text: #1f2937;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+}
+
+.nvbar {
+  background-color: var(--main);
+}
+
+.listitem {
+  background-color: var(--main);
+  color: #fff;
+  text-align: center;
+  font-weight: 400;
+  z-index: 9999;
+}
+/* 
+#name{
+    width: 20%;
+    height: 100%;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#navsec{
+    width: 60%;
+    height: 100%;
+}
+
+#navsec ul{
+    list-style: none;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#navsec ul li{
+    font-size: 15px;
+    font-weight: 500;
+}
+
+#navsec ul li:hover{
+    color: var(--s-main);
+    cursor: pointer;
+    text-decoration: var(--text) wave underline;
+    transition: all 0.2s ease-in;
+    transform: scale(1.05) rotate(-1deg);
+}
+
+#user{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.button-33 {
+  background-color: #c2fbd7;
+  border-radius: 100px;
+  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
+  color: green;
+  cursor: pointer;
+  display: inline-block;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-33:hover {
+  box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
+  transform: scale(1.05) rotate(-1deg);
+} */
+
+.container1 {
+  height: 90vh;
+  width: 100%;
+  background-color: rgb(159, 255, 196);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container1 .headline {
+  height: 30%;
+  width: 100%;
+  display: flex;
+  font-weight: 600;
+  font-size: 80px;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.headline span {
+  padding-left: 25px;
+  color: #0e9f6e;
+}
+
+.container1 p {
+  height: 20%;
+  width: 100%;
+  color: #333;
+  font-size: 25px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.container1 .search {
+  margin: 0 auto;
+  height: 20%;
+  width: 60%;
+}
+
+.container1 .crousel {
+  margin: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--main);
+}
+
+.slider-container {
+  background-color: var(--main);
+  display: flex;
+  width: 60%;
+  -webkit-mask: linear-gradient(90deg, #0000, #ffffff 5% 95%, #0000);
+  overflow: hidden;
+  height: 90%;
+  /* border: 2px dotted black; */
+}
+
+.slider::before {
+  box-shadow: 50px 0 50px #000000 inset;
+  left: 0;
+}
+
+.slider::after {
+  box-shadow: -50px 0 50px rgb(0, 0, 0) inset;
+  right: 0;
+}
+
+.slider {
+  display: flex;
+  animation: slide 15s infinite linear;
+  display: flex;
+}
+
+.slider-item {
+  flex: 0 0 15%;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.slider-item img {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.slider-item img:hover {
+  height: 80%;
+  width: 80%;
+  border-radius: 5px;
+  transition: 0.6s;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@media (min-width: 340px) and (max-width: 1024px) {
+  nav {
+    width: 100%;
+    height: 10vh;
+  }
+  .listitem {
+    background-color: aliceblue;
+    color: var(--main);
+  }
+}

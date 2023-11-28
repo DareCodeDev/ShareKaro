@@ -14,9 +14,7 @@ class _LoginScreenState extends State<LoginScreen> {
       body: SafeArea(
         child: Stack(
           children: [
-            Container(
-              child: ,
-            ),
+            Container(),
           ],
         ),
       ),

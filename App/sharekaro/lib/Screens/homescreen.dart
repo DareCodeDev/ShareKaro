@@ -13,6 +13,25 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final UnsplashService _unsplashService = UnsplashService();
   List<UnsplashImage> _images = [];
+
+  late FocusNode _focusNode; // Initialize FocusNode
+  late TextEditingController
+      _textController; // Initialize TextEditingController
+
+  @override
+  void initState() {
+    super.initState();
+    _focusNode = FocusNode(); // Assign FocusNode
+    _textController = TextEditingController(); // Assign TextEditingController
+  }
+
+  @override
+  void dispose() {
+    _focusNode.dispose(); // Dispose FocusNode
+    _textController.dispose(); // Dispose TextEditingController
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,27 +54,30 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Container(
-                height: MediaQuery.of(context).size.height * 0.06,
-                width: MediaQuery.of(context).size.width * 0.95,
-                decoration: BoxDecoration(
-                  color: Colors.grey[200],
-                  borderRadius: BorderRadius.circular(25.0),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => Search(),
-                            ),
-                          );
-                        },
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Search(
+                        focusNode: _focusNode,
+                        textController: _textController,
+                      ),
+                    ),
+                  );
+                },
+                child: Container(
+                  height: MediaQuery.of(context).size.height * 0.06,
+                  width: MediaQuery.of(context).size.width * 0.95,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[200],
+                    borderRadius: BorderRadius.circular(25.0),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
                         child: Text(
                           'Search for images...',
                           style: TextStyle(
@@ -63,19 +85,12 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                       ),
-                    ),
-                    IconButton(
-                      icon: Icon(Icons.search),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => Search(),
-                          ),
-                        );
-                      },
-                    ),
-                  ],
+                      IconButton(
+                        icon: Icon(Icons.search),
+                        onPressed: () {},
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

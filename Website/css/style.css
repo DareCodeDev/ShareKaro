@@ -149,11 +149,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--s-main);
+  background-color: var(--main);
 }
 
 .slider-container {
-  background-color: var(--s-main);
+  background-color: var(--main);
   display: flex;
   width: 60%;
   -webkit-mask: linear-gradient(90deg, #0000, #ffffff 5% 95%, #0000);
@@ -187,12 +187,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 
 .slider-item img {
   height: 150px;
   width: 150px;
   border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
 .slider-item img:hover {

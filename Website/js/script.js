@@ -8,3 +8,5 @@ slider.addEventListener('mouseover', () => {
 slider.addEventListener('mouseout', () => {
   slider.style.animationPlayState = 'running';
 });
+
+

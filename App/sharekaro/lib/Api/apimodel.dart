@@ -6,6 +6,12 @@ class UnsplashImage {
   final String description;
   final String imageUrl;
 
+  var photographerId;
+
+  var photographerUrl;
+
+  var photographer;
+
   UnsplashImage({
     required this.id,
     required this.description,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sharekaro/Screens/imagescreen.dart';
+import 'package:sharekaro/Screens/search.dart';
 import '../Api/apimodel.dart'; // Import your UnsplashService and UnsplashImage classes
 
 class HomeScreen extends StatefulWidget {
@@ -10,24 +11,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final TextEditingController _searchController = TextEditingController();
   final UnsplashService _unsplashService = UnsplashService();
   List<UnsplashImage> _images = [];
-
-  void _searchImages() async {
-    String query = _searchController.text.trim();
-    if (query.isNotEmpty) {
-      try {
-        List<UnsplashImage> images = await _unsplashService.searchImages(query);
-        setState(() {
-          _images = images;
-        });
-      } catch (e) {
-        print('Error: $e');
-      }
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,25 +43,37 @@ class _HomeScreenState extends State<HomeScreen> {
                   borderRadius: BorderRadius.circular(25.0),
                 ),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                        child: TextField(
-                          controller: _searchController,
-                          decoration: InputDecoration(
-                            hintText: 'Search Images...',
-                            border: InputBorder.none,
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Search(),
+                            ),
+                          );
+                        },
+                        child: Text(
+                          'Search for images...',
+                          style: TextStyle(
+                            fontSize: 18,
                           ),
-                          onSubmitted: (_) {
-                            _searchImages();
-                          },
                         ),
                       ),
                     ),
                     IconButton(
                       icon: Icon(Icons.search),
-                      onPressed: _searchImages,
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Search(),
+                          ),
+                        );
+                      },
                     ),
                   ],
                 ),
@@ -173,29 +170,11 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.02,
-            ),
-            Expanded(
-              child: GridView.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 4.0,
-                  mainAxisSpacing: 4.0,
-                ),
-                itemCount: _images.length,
-                itemBuilder: (context, index) {
-                  return Image.network(
-                    _images[index].imageUrl,
-                    fit: BoxFit.cover,
-                  );
-                },
-              ),
+              height: MediaQuery.of(context).size.height * 0.50,
             ),
           ],
         ),
       ),
     );
   }
-
-  // Inside _buildPopularImages() method
 }

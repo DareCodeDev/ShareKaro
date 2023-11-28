@@ -21,6 +21,31 @@ class ImageScreen extends StatefulWidget {
 class _ImageScreenState extends State<ImageScreen> {
   bool isFavorite = false;
   final Dio _dio = Dio();
+  final UnsplashService _unsplashService = UnsplashService();
+  List<UnsplashImage> randomImages = [];
+
+  Future<void> _fetchRandomImages() async {
+    try {
+      final List<UnsplashImage> images =
+          await _unsplashService.fetchTrendingImages();
+      setState(() {
+        randomImages = images;
+      });
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Failed to load random images: $e'),
+          duration: Duration(seconds: 2),
+        ),
+      );
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _fetchRandomImages();
+  }
 
   Future<void> _downloadImage() async {
     try {
@@ -150,8 +175,8 @@ class _ImageScreenState extends State<ImageScreen> {
                             await _downloadImage();
                           },
                           child: Container(
-                            height: 40,
-                            width: 40,
+                            height: MediaQuery.of(context).size.height * 0.07,
+                            width: MediaQuery.of(context).size.width * 0.25,
                             decoration: BoxDecoration(
                               color: Color(0xFFB31312),
                               borderRadius: BorderRadius.circular(50),
@@ -175,22 +200,68 @@ class _ImageScreenState extends State<ImageScreen> {
                       ],
                     ),
                   ),
-                  Container(
-                    padding: EdgeInsets.all(16.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          widget.image.description ??
-                              'No description available',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.bold,
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.02,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      height: MediaQuery.of(context).size.height - 400,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 8.0),
+                            child: Text(
+                              'Random Images',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
                           ),
-                        ),
-                      ],
+                          Expanded(
+                            child: GridView.builder(
+                              itemCount: randomImages.length,
+                              gridDelegate:
+                                  SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 2,
+                                crossAxisSpacing: 8.0,
+                                mainAxisSpacing: 8.0,
+                              ),
+                              itemBuilder: (context, index) {
+                                return GestureDetector(
+                                  onTap: () {
+                                    Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => ImageScreen(
+                                          image: randomImages[index],
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(8.0),
+                                      image: DecorationImage(
+                                        image: NetworkImage(
+                                            randomImages[index].imageUrl),
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.02,
                   ),
                 ],
               ),

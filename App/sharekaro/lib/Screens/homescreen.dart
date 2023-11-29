@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sharekaro/Constants/constants.dart';
 import 'package:sharekaro/Screens/imagescreen.dart';
 import 'package:sharekaro/Screens/search.dart';
 import '../Api/apimodel.dart'; // Import your UnsplashService and UnsplashImage classes
@@ -35,98 +36,101 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: bg,
       body: SafeArea(
-        child: Column(
-          children: [
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.02,
-            ),
-            Container(
-              height: MediaQuery.of(context).size.height * 0.05,
-              width: MediaQuery.of(context).size.width * 0.9,
-              child: Text(
-                'Hello, User!',
-                style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.02,
+              ),
+              Container(
+                height: MediaQuery.of(context).size.height * 0.05,
+                width: MediaQuery.of(context).size.width * 0.9,
+                child: Text(
+                  'Hello, User!',
+                  style: TextStyle(
+                    fontSize: 25,
+                    color: text,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Search(
-                        focusNode: _focusNode,
-                        textController: _textController,
-                      ),
-                    ),
-                  );
-                },
-                child: Container(
-                  height: MediaQuery.of(context).size.height * 0.06,
-                  width: MediaQuery.of(context).size.width * 0.95,
-                  decoration: BoxDecoration(
-                    color: Colors.grey[200],
-                    borderRadius: BorderRadius.circular(25.0),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                        child: Text(
-                          'Search for images...',
-                          style: TextStyle(
-                            fontSize: 18,
-                          ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Search(
+                          focusNode: _focusNode,
+                          textController: _textController,
                         ),
                       ),
-                      IconButton(
-                        icon: Icon(Icons.search),
-                        onPressed: () {},
-                      ),
-                    ],
+                    );
+                  },
+                  child: Container(
+                    height: MediaQuery.of(context).size.height * 0.06,
+                    width: MediaQuery.of(context).size.width * 0.95,
+                    decoration: BoxDecoration(
+                      color: primary,
+                      borderRadius: BorderRadius.circular(25.0),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                          child: Text(
+                            'Search for images...',
+                            style: TextStyle(
+                              color: text,
+                              fontSize: 18,
+                            ),
+                          ),
+                        ),
+                        IconButton(
+                          icon: Icon(Icons.search),
+                          onPressed: () {},
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.02,
-            ),
-            Container(
-              height: MediaQuery.of(context).size.height * 0.03,
-              width: MediaQuery.of(context).size.width * 0.9,
-              child: Text(
-                'Trending Images',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.02,
+              ),
+              Container(
+                height: MediaQuery.of(context).size.height * 0.03,
+                width: MediaQuery.of(context).size.width * 0.9,
+                child: Text(
+                  'Trending Images',
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: text,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.02,
-            ),
-            Expanded(
-              child: FutureBuilder(
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.02,
+              ),
+              FutureBuilder(
                 future: _unsplashService.fetchTrendingImages(),
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
                     List<UnsplashImage> images =
                         snapshot.data as List<UnsplashImage>;
-                    return ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: images.length,
-                      itemBuilder: (context, index) {
-                        return Container(
-                          height: MediaQuery.of(context).size.height * 0.7,
-                          width: MediaQuery.of(context).size.width * 0.45,
-                          color: Colors.grey[200],
-                          child: Padding(
+                    return Container(
+                      height: MediaQuery.of(context).size.height * 0.25,
+                      width: MediaQuery.of(context).size.width,
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: images.length,
+                        itemBuilder: (context, index) {
+                          return Padding(
                             padding: EdgeInsets.all(8.0),
                             child: GestureDetector(
                               onTap: () {
@@ -154,9 +158,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                               ),
                             ),
-                          ),
-                        );
-                      },
+                          );
+                        },
+                      ),
                     );
                   } else if (snapshot.hasError) {
                     return Center(
@@ -169,25 +173,25 @@ class _HomeScreenState extends State<HomeScreen> {
                   }
                 },
               ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.02,
-            ),
-            Container(
-              height: MediaQuery.of(context).size.height * 0.03,
-              width: MediaQuery.of(context).size.width * 0.9,
-              child: Text(
-                'Pin Images',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.02,
+              ),
+              Container(
+                height: MediaQuery.of(context).size.height * 0.03,
+                width: MediaQuery.of(context).size.width * 0.9,
+                child: Text(
+                  'Pin Images',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.50,
-            ),
-          ],
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.50,
+              ),
+            ],
+          ),
         ),
       ),
     );

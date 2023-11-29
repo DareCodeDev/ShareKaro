@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sharekaro/Screens/homescreen.dart';
 import 'package:sharekaro/Screens/loginscreen.dart';
+import 'package:sharekaro/Screens/navbar.dart';
 import 'package:sharekaro/Screens/onboarding.dart';
 
 void main() async {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home: NavBar(),
     );
   }
 }

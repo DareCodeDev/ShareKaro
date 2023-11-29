@@ -7,6 +7,7 @@ import 'package:http/http.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sharekaro/Api/apimodel.dart';
+import 'package:sharekaro/Constants/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ImageScreen extends StatefulWidget {
@@ -23,6 +24,7 @@ class _ImageScreenState extends State<ImageScreen> {
   final Dio _dio = Dio();
   final UnsplashService _unsplashService = UnsplashService();
   List<UnsplashImage> randomImages = [];
+  Set<String> favoriteImages = {};
 
   Future<void> _fetchRandomImages() async {
     try {
@@ -39,6 +41,12 @@ class _ImageScreenState extends State<ImageScreen> {
         ),
       );
     }
+  }
+
+  void toggleFavorite() {
+    setState(() {
+      isFavorite = !isFavorite;
+    });
   }
 
   @override
@@ -96,7 +104,7 @@ class _ImageScreenState extends State<ImageScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF272829),
+      backgroundColor: bg,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Stack(
@@ -148,24 +156,32 @@ class _ImageScreenState extends State<ImageScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Container(
-                          height: MediaQuery.of(context).size.height * 0.07,
-                          width: MediaQuery.of(context).size.width * 0.25,
-                          decoration: BoxDecoration(
-                            color: Color(0xFFB31312),
-                            borderRadius: BorderRadius.circular(50),
-                            border: Border.all(
-                              color: Color.fromARGB(255, 255, 255, 255),
-                              width: 2.5,
+                        GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              isFavorite = !isFavorite;
+                              if (isFavorite) {
+                                favoriteImages.add(widget.image.imageUrl);
+                              } else {
+                                favoriteImages.remove(widget.image.imageUrl);
+                              }
+                            });
+                          },
+                          child: Container(
+                            height: MediaQuery.of(context).size.height * 0.07,
+                            width: MediaQuery.of(context).size.width * 0.25,
+                            decoration: BoxDecoration(
+                              color: button,
+                              borderRadius: BorderRadius.circular(50),
                             ),
-                          ),
-                          child: Center(
-                            child: Text(
-                              'Favorite',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold,
+                            child: Center(
+                              child: Text(
+                                'Favorite',
+                                style: TextStyle(
+                                  color: text,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
                           ),
@@ -178,18 +194,14 @@ class _ImageScreenState extends State<ImageScreen> {
                             height: MediaQuery.of(context).size.height * 0.07,
                             width: MediaQuery.of(context).size.width * 0.25,
                             decoration: BoxDecoration(
-                              color: Color(0xFFB31312),
+                              color: button,
                               borderRadius: BorderRadius.circular(50),
-                              border: Border.all(
-                                color: Color.fromARGB(255, 255, 255, 255),
-                                width: 2.5,
-                              ),
                             ),
                             child: Center(
                               child: Text(
                                 'Download',
                                 style: TextStyle(
-                                  color: Colors.white,
+                                  color: text,
                                   fontSize: 15,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -213,9 +225,9 @@ class _ImageScreenState extends State<ImageScreen> {
                           Padding(
                             padding: const EdgeInsets.only(bottom: 8.0),
                             child: Text(
-                              'Random Images',
+                              'More Images',
                               style: TextStyle(
-                                color: Colors.white,
+                                color: text,
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -270,18 +282,15 @@ class _ImageScreenState extends State<ImageScreen> {
                   padding: const EdgeInsets.all(8.0),
                   child: GestureDetector(
                     onTap: () {
+                      // pop the current screen
                       Navigator.pop(context);
                     },
                     child: Container(
                         height: 40,
                         width: 40,
                         decoration: BoxDecoration(
-                          color: Colors.white,
+                          color: button,
                           borderRadius: BorderRadius.circular(15),
-                          border: Border.all(
-                            color: const Color.fromARGB(255, 0, 0, 0),
-                            width: 2.5,
-                          ),
                         ),
                         child: Center(
                           child: Icon(Icons.arrow_back),

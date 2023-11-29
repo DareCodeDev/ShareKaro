@@ -16,7 +16,7 @@ class _OnboardingState extends State<Onboarding> {
   void initState() {
     super.initState();
     Timer(
-      Duration(seconds: 100),
+      Duration(seconds: 10000),
       () => Navigator.push(
         context,
         MaterialPageRoute(

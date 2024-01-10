@@ -21,8 +21,7 @@ dependencies:
   flutter_file_dialog: ^3.0.2
   dio: ^5.3.4
   image_gallery_saver: ^2.0.3
-  dot_navigation_bar: ^1.0.2
-  rive:
+  provider: ^6.1.1
 
 dev_dependencies:
   flutter_test:

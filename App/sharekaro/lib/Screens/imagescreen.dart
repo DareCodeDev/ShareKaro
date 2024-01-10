@@ -6,9 +6,12 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:provider/provider.dart';
 import 'package:sharekaro/Api/apimodel.dart';
 import 'package:sharekaro/Constants/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import 'Provider/favorite.dart';
 
 class ImageScreen extends StatefulWidget {
   final UnsplashImage image;
@@ -46,6 +49,13 @@ class _ImageScreenState extends State<ImageScreen> {
   void toggleFavorite() {
     setState(() {
       isFavorite = !isFavorite;
+      final favoritesProvider =
+          Provider.of<FavoritesProvider>(context, listen: false);
+      if (isFavorite) {
+        favoritesProvider.addToFavorites(widget.image.imageUrl);
+      } else {
+        favoritesProvider.removeFromFavorites(widget.image.imageUrl);
+      }
     });
   }
 
@@ -158,14 +168,7 @@ class _ImageScreenState extends State<ImageScreen> {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            setState(() {
-                              isFavorite = !isFavorite;
-                              if (isFavorite) {
-                                favoriteImages.add(widget.image.imageUrl);
-                              } else {
-                                favoriteImages.remove(widget.image.imageUrl);
-                              }
-                            });
+                            toggleFavorite();
                           },
                           child: Container(
                             height: MediaQuery.of(context).size.height * 0.07,

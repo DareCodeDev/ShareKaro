@@ -1,11 +1,8 @@
-import 'package:dot_navigation_bar/dot_navigation_bar.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:sharekaro/Constants/constants.dart';
 import 'package:sharekaro/Screens/favorite.dart';
 import 'package:sharekaro/Screens/homescreen.dart';
 import 'package:sharekaro/Screens/loginscreen.dart';
-import 'package:sharekaro/Screens/onboarding.dart';
 
 class NavBar extends StatefulWidget {
   const NavBar({Key? key}) : super(key: key);

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:sharekaro/Screens/Provider/favorite.dart';
 import 'package:sharekaro/Screens/homescreen.dart';
 import 'package:sharekaro/Screens/loginscreen.dart';
 import 'package:sharekaro/Screens/navbar.dart';
@@ -16,9 +18,16 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: NavBar(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<FavoritesProvider>(
+          create: (context) => FavoritesProvider(),
+        ),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: NavBar(),
+      ),
     );
   }
 }

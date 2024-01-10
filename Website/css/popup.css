@@ -1,0 +1,236 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla&family=Poppins:wght@300;500&family=Roboto:wght@500&family=Signika+Negative:wght@300&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  width: 100%;
+  font-family: "Karla", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
+  font-family: "Signika Negative", sans-serif;
+  background-color: rgb(255, 255, 255);
+}
+.popup {
+  height: 85%;
+  position: absolute;
+  width: 25%;
+  display: none;
+  border-radius: 15px;
+  background-color: #fff;
+  box-shadow: 0px 0px 5px 0px black;
+  top: 50%;
+  left: 50%;
+  z-index: 999;
+  transform: translate(-50%,-50%);
+  transition: all 0.5 ease-in-out;
+}
+
+.first {
+  height: 95%;
+  width: 95%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row-reverse;
+  /* border: 1px dotted yellowgreen; */
+}
+
+.section {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  /* border: 1px solid blue; */
+  flex-direction: column;
+}
+
+.section .head {
+  height: 10%;
+  margin-left: 28%;
+  width: 70%;
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+
+.section .head img{
+  margin-right: 50%;
+}
+
+.section h1 {
+  color: #333;
+}
+
+.ipt {
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid black; */
+  margin: 10px;
+  width: 90%;
+  height: 35%;
+}
+
+.ipt span {
+  color: #434343;
+  margin: 3px 2px;
+  text-align: end;
+}
+
+.ipt span:hover {
+  text-decoration: underline;
+  color: black;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.form-element {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-element label {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  margin-left: 12px;
+  font-weight: 600;
+  font-size: 15px;
+  color: #535252;
+}
+
+.form-element input {
+  height: 45px;
+  width: 100%;
+  border-radius: 10px;
+  outline: none;
+  border: 1px solid #a9a9a9;
+  padding: 10px 20px;
+}
+
+.form-element input[type="email"],
+.form-element input[type="password"] {
+  font-size: 16px;
+  color: #333;
+  font-weight: 500;
+}
+
+.form-element input:hover {
+  border: 3px solid #c9c5c5;
+  transition: 0.1s;
+}
+
+.form-element input:focus {
+  border: 3px solid #00a6ff;
+}
+
+.buttons {
+  height: 40%;
+  width: 90%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+}
+
+#login {
+  height: 40px;
+  width: 100%;
+  color: #fff;
+  background-color: rgba(255, 18, 18, 0.926);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+  border-radius: 20px;
+  font-size: 18px;
+}
+
+#login:hover {
+  border: 3px solid rgb(255, 119, 119);
+  transition: 0.1s;
+}
+
+.buttons h3 {
+  font: 500;
+  font-size: 20px;
+}
+
+.buttons h3::before {
+  content: "_____";
+}
+.buttons h3::after {
+  content: "_____";
+}
+
+#facebook {
+  height: 40px;
+  width: 100%;
+  color: #ffffff;
+  background-color: #285fbd;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+#facebook:hover {
+  border: 3px solid #699ffb;
+  transition: 0.1s;
+}
+
+#google {
+  height: 40px;
+  width: 100%;
+  color: #535252;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border: 1px solid #dcdcdc;
+  border-radius: 20px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+#google:hover {
+  border: 2px solid #a9a9a9;
+  transition: 0.1s;
+}
+
+.foot {
+  height: 20%;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.foot p {
+  font-size: 11px;
+}
+.foot span {
+  font-size: 12px;
+  font-weight: 700;
+}
+.foot span:hover {
+  text-decoration: underline;
+  cursor: grab;
+}
+
+.color{
+  height: 30%;
+  width: 100%;
+}
+#c1{
+  background: #00a6ff;
+}
+#c2{
+  background: red;
+}
+#c3{
+  background: blueviolet;
+}

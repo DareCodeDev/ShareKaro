@@ -1,0 +1,138 @@
+*{
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+#display{
+    width: 100%;
+    background-color: rgb(197, 216, 255);
+    padding-top: 1px;
+}
+
+#Images-list {
+  width: 80%;
+  margin: 100px auto 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 40px;
+}
+
+#Images-list img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+/* show more button css */
+
+.button-57 {
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #0081fe;
+  outline: none;
+  color: #18181a;
+  display: none;
+  width: 8vw;
+  border-radius: 40px;
+  font-size: 18px;
+  line-height: 15px;
+  padding: 18px 18px 17px;
+  text-decoration: none;
+  margin: 10px auto 100px;
+  cursor: pointer;
+  background: #fff;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-57 span:first-child {
+  position: relative;
+  transition: color 600ms cubic-bezier(0.48, 0, 0.12, 1);
+  z-index: 10;
+}
+
+.button-57 span:last-child {
+  color: white;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  transition: all 500ms cubic-bezier(0.48, 0, 0.12, 1);
+  z-index: 100;
+  opacity: 0;
+  top: 50%;
+  left: 50%;
+  transform: translateY(225%) translateX(-50%);
+  height: 14px;
+  line-height: 13px;
+}
+
+.button-57:after {
+  content: "";
+  position: absolute;
+  bottom: -50%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0081fe;
+  transform-origin: bottom center;
+  transition: transform 600ms cubic-bezier(0.48, 0, 0.12, 1);
+  transform: skewY(9.3deg) scaleY(0);
+  z-index: 50;
+}
+
+.button-57:hover:after {
+  transform-origin: bottom center;
+  transform: skewY(9.3deg) scaleY(2);
+}
+
+.button-57:hover span:last-child {
+  transform: translateX(-50%) translateY(-100%);
+  opacity: 1;
+  transition: all 900ms cubic-bezier(0.48, 0, 0.12, 1);
+}
+
+/* Responsive code */
+
+/* Responsive styles for screens smaller than 768px */
+@media (max-width: 768px) {
+
+  #row {
+    margin: 10px auto;
+    width: 89vw;
+    display: block;
+    margin: 25px auto;
+  }
+
+  #Images-list {
+    grid-template-columns: 1fr;
+    margin: 50px auto;
+  }
+
+}
+
+/* Responsive styles for screens between 769px and 1024px */
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  #Images-list {
+    grid-template-columns: 1fr 2fr;
+    margin: 80px auto;
+  }
+}
+
+/* Responsive styles for screens larger than 1024px */
+@media (min-width: 1025px) {
+
+  #Images-list {
+    width: 80%;
+    margin: 100px auto 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .button-57 {
+    width: 50vw;
+    font-size: 18px;
+  }
+}

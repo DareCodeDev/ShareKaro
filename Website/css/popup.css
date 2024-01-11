@@ -230,3 +230,10 @@ body {
 #c3{
   background: blueviolet;
 }
+
+@media (min-width: 340px) and (max-width: 1024px){
+  .popup{
+    width: 90%;
+    height: 90%;
+  }
+}

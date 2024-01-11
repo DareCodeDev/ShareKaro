@@ -32,10 +32,14 @@
   color: #fff;
   margin: 0 10px;
   display: inline-block;
-  transition: 0.5s;
+  transition: .5s;
 }
 .social-icon__link:hover {
   transform: translateY(-10px);
+}
+
+.menu__item:hover{
+  border-bottom: 2px solid #ffffff;
 }
 
 .menu__link {

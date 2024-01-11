@@ -10,18 +10,33 @@
 }
 
 html{
-  background-color: rgb(197, 216, 255);
+  background-color: var(--s-main);
 }
-
 :root {
   --main: #0081fe;
   --s-main: rgb(197, 216, 255);
   --text: #1f2937;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 8px;
+  background-color: #e7e7e7;
+  border: 1px solid #cacaca;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: #0081fe;
+}
+
 .nvbar {
   background-color: var(--main);
   z-index: 0;
+  box-shadow: 0px 325px 430px -415px #111;   
 }
 
 .listitem {

@@ -36,13 +36,16 @@ async function searchImages() {
 
   const results = data.results;
   results.map((result) => {
+    // Create image element
     const image = document.createElement("img");
     image.src = result.urls.small; // THERE ARE SOME MORE OPTIONS INSTEAD OF SMALL LIKE RAW,FULL,REGULAR,THUMB,ETC
 
+     // Create a link for the image
     const imageLink = document.createElement("a");
     imageLink.href = result.links.download; // THERE ARE SOME MORE OPTIONS INSTEAD OF HTML LIKE SELF,DOWNLOAD,DOWNLOAD_LOCAION,ETC
     imageLink.target = "_blank";
 
+    // Append image and download button to the link
     imageLink.appendChild(image);
     Imageslist.appendChild(imageLink);
   });

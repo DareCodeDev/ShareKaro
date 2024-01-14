@@ -147,6 +147,24 @@ body {
   transition: 0.1s;
 }
 
+#signup {
+  height: 40px;
+  width: 100%;
+  color: #fff;
+  background-color: rgba(0, 166, 255, 0.926);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+#signup:hover {
+  border: 3px solid rgb(0, 166, 255);
+  transition: 0.1s;
+}
+
 .buttons h3 {
   font: 500;
   font-size: 20px;

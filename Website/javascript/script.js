@@ -1,69 +1,62 @@
-// JavaScript to pause the animation on hover
-// const slider = document.querySelector('.slider');
+// Wait for the DOM to be fully loaded
+document.addEventListener("DOMContentLoaded", function () {
+  // JavaScript to pause the animation on hover
+  // const slider = document.querySelector('.slider');
+  // slider.addEventListener('mouseover', () => {
+  //   slider.style.animationPlayState = 'paused';
+  // });
+  // slider.addEventListener('mouseout', () => {
+  //   slider.style.animationPlayState = 'running';
+  // });
 
-// slider.addEventListener('mouseover', () => {
-//   slider.style.animationPlayState = 'paused';
-// });
+  const Row = document.getElementById("row");
+  const SearchArea = document.getElementById("search-area");
+  const Imageslist = document.getElementById("Images-list");
+  const ShowMore = document.getElementById("show-more");
 
-// slider.addEventListener('mouseout', () => {
-//   slider.style.animationPlayState = 'running';
-// });
+  let keyword = "";
+  let page = 1;
+  let assessKey = "1vylW6wUMK3VOEaNu7wy_7DjHIABnVj2dnCUcL11URs";
 
-const Row = document.getElementById("row");
-const SearchArea = document.getElementById("search-area");
-const Imageslist = document.getElementById("Images-list");
-const ShowMore = document.getElementById("show-more");
+  async function searchImages() {
+    keyword = SearchArea.value;
+    const url = `https://api.unsplash.com/search/photos?page=${page}&query=${keyword}&client_id=${assessKey}&per_page=12`;
 
-let keyword = "";
-let page = 1;
-let assessKey = "1vylW6wUMK3VOEaNu7wy_7DjHIABnVj2dnCUcL11URs";
+    const response = await fetch(url);
+    const data = await response.json();
 
-async function searchImages() {
+    if (page === 1) {
+      Imageslist.innerHTML = "";
+    }
 
-  keyword = SearchArea.value;
-  const url = `https://api.unsplash.com/search/photos?page=${page}&query=${keyword}&client_id=${assessKey}&per_page=12`;
+    const results = data.results;
+    results.map((result) => {
+      const image = document.createElement("img");
+      image.src = result.urls.small;
 
-  const response = await fetch(url);
-  const data = await response.json();
+      const imageLink = document.createElement("a");
+      imageLink.href = result.links.download;
+      imageLink.target = "_blank";
 
-  if (page === 1) {
-    Imageslist.innerHTML = "";
+      imageLink.appendChild(image);
+      Imageslist.appendChild(imageLink);
+    });
+    ShowMore.style.display = "block";
   }
 
-  //   if (SearchArea.value === "") {
-  //     alert("Please search for the image!");
-  //   }
-
-  const results = data.results;
-  results.map((result) => {
-    // Create image element
-    const image = document.createElement("img");
-    image.src = result.urls.small; // THERE ARE SOME MORE OPTIONS INSTEAD OF SMALL LIKE RAW,FULL,REGULAR,THUMB,ETC
-
-     // Create a link for the image
-    const imageLink = document.createElement("a");
-    imageLink.href = result.links.download; // THERE ARE SOME MORE OPTIONS INSTEAD OF HTML LIKE SELF,DOWNLOAD,DOWNLOAD_LOCAION,ETC
-    imageLink.target = "_blank";
-
-    // Append image and download button to the link
-    imageLink.appendChild(image);
-    Imageslist.appendChild(imageLink);
+  Row.addEventListener("submit", (e) => {
+    e.preventDefault();
+    page = 1;
+    searchImages();
   });
-  ShowMore.style.display = "block";
-}
 
-Row.addEventListener("submit", (e) => {
-  e.preventDefault();
-  page = 1;
-  searchImages();
+  ShowMore.addEventListener("click", function () {
+    page++;
+    searchImages();
+  });
+
+  function scrollFunction() {
+    const element = document.getElementById("Images-list");
+    element.scrollIntoView();
+  }
 });
-
-ShowMore.addEventListener("click", function () {
-  page++;
-  searchImages();
-});
-
-function scrollFunction() {
-  const element = document.getElementById("Images-list");
-  element.scrollIntoView();
-}

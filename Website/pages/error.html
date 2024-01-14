@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+</head>
+<body>
+    <h1>An error occurred:</h1>
+    <p id="errorMessage"></p>
+
+    <script>
+        // Get the error message from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const errorMessage = urlParams.get('message');
+
+        // Display the error message
+        const errorMessageElement = document.getElementById('errorMessage');
+        errorMessageElement.textContent = errorMessage || 'Unknown error';
+    </script>
+</body>
+</html>

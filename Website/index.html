@@ -67,10 +67,13 @@
             </a>
             <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
                 <button type="button" id="show-login"
-                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    class="text-white mr-2 bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                     Log in
                 </button>
-                <button class="btn sky" id="show_signup">Sign Up</button>
+                <button type="button" id="show-signin"
+                    class="font-medium rounded-lg text-sm px-4 py-2 focus:ring-4 focus:outline-none focus:ring-blue-700 text-center dark:focus:ring-blue-800">
+                    <a href="./SignIn.html" target="_blank">Sign in</a>
+                </button>
                 <button data-collapse-toggle="navbar-cta" type="button"
                     class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-green-800 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                     aria-controls="navbar-cta" aria-expanded="false">
@@ -108,46 +111,7 @@
         </div>
     </nav>
     <!-- End of navbar -->
-    <!-- Start Signup Popup window code -->
-    <div class="popup" id="signupPopup">
-        <div class="first">
-            <div class="section">
-                <div class="head">
-                    <div>
-                        <i class="fa-regular fa-xl fa-circle-xmark" style="color: #285fbd" id="closeSignupPopupBtn"></i>
-                    </div>
-                    <img src="https://flowbite.com/docs/images/logo.svg" alt="" />
-                </div>
-                <h1>Join PicHunt</h1>
-                <div class="ipt">
-                    <div class="form-element">
-                        <label for="username">Username</label>
-                        <input type="text" id="signupUsername" placeholder="Username" />
-                    </div>
-                    <div class="form-element">
-                        <label for="email">Email</label>
-                        <input type="email" id="signupEmail" placeholder="Email" />
-                    </div>
-                    <div class="form-element">
-                        <label for="password">Password</label>
-                        <input type="password" id="signupPassword" placeholder="Password" />
-                    </div>
-                    <!-- You can add additional fields like name, etc., as needed -->
-                </div>
-                <div class="buttons">
-                    <div id="signup">Sign Up</div>
-                </div>
-                <div class="foot">
-                    <p>By joining, you agree to PicArt's</p>
-                    <p><span>Terms of Service</span> and acknowledge you've read our</p>
-                    <span>Privacy Policy. Notice at collection</span>
-                </div>
-                <!-- Add the login button inside the signup form -->
-                <button class="btn sky" id="show_login_signup">Already have an account? Log In</button>
-            </div>
-        </div>
-    </div>
-    <!-- End Signup Popup window code -->
+
     <!-- Start Of Container that consists of h1 and searchbar -->
     <div class="container1">
         <h1 class="headline">Expand <span>your mind</span></h1>
@@ -355,8 +319,6 @@
 <script type="module" src="/Website/Firebase/firebase.js"></script>
 <script type="module" src="/Website/javascript/script.js"></script>
 <script type="module" src="/Website/javascript/popup.js"></script>
-
-
 
 <!-- fontawesome, iconify, flowbite Script -->
 <script src="https://kit.fontawesome.com/12bde67e27.js" crossorigin="anonymous"></script>

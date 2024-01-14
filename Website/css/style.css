@@ -51,6 +51,12 @@ html{
   background-color: var(--main);
   color: #fff;
 }
+
+#show-signin{
+  background-color: #e7e7e7;
+  color: #0081fe;
+}
+
 /* 
 #name{
     width: 20%;

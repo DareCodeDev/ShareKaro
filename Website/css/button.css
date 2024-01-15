@@ -1,4 +1,4 @@
-.btn {
+/* .btn {
     padding: 1em 2.1em 1.1em;
     border-radius: 8px;
     margin: 8px 8px 8px 8px;
@@ -40,4 +40,38 @@
 
 .sky {
     background-color: #0b63bb;
-}
+} */
+
+.Explore {
+    display: flex;
+    align-items: center;
+    font-family: inherit;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 17px;
+    padding: 0.8em 1.3em 0.8em 0.9em;
+    color: white;
+    background: #0b63bb;
+    background: linear-gradient(to right, #1b76d1, #3498fb, #1b76d1);
+    border: none;
+    letter-spacing: 0.05em;
+    border-radius: 16px;
+  }
+  
+  .Explore svg {
+    margin-right: 3px;
+    transform: rotate(30deg);
+    transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+  }
+  
+  .Explore span {
+    transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+  }
+  
+  .Explore:hover svg {
+    transform: translateX(5px) rotate(90deg);
+  }
+  
+  .Explore:hover span {
+    transform: translateX(7px);
+  }

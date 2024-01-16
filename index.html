@@ -7,7 +7,6 @@
     <title>PicHunt</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
     <link rel="shortcut icon" href="./Website/Assets/favicon.png" type="image/x-icon" />
-    <link rel="stylesheet" href="./Website/css/popup.css"/>
     <link rel="stylesheet" href="./Website/css/display.css"/>
     <link rel="stylesheet" href="./Website/css/footer.css"/>
     <link rel="stylesheet" href="./Website/css/style.css"/>
@@ -15,7 +14,7 @@
 
 <body>
     <!-- Start Popup login window code -->
-    <div class="popup">
+    <!-- <div class="popup">
         <div class="first">
             <div class="section">
                 <div class="head">
@@ -55,26 +54,20 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- End Popup login window code -->
 
     <!-- Start of navbar -->
     <nav class="border-gray-200 dark:bg-gray-900 nvbar">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="/index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <a href="./index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="./Website/Assets/logo.png" class="h-8" alt="PicHunt"/>
             </a>
             <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
                 <button type="button" id="show-login"
-                    class="text-white mr-2 bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                    Log in
+                    class="text-white mr-2 flex text-center justify-center bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    <ion-icon name="arrow-down-outline"></ion-icon>Download App
                 </button>
-                <a href="./Website/SignIn.html" target="_blank">
-                <button type="button" id="show-signin"
-                    class="font-medium rounded-lg text-sm px-4 py-2 focus:ring-4 focus:outline-none focus:ring-blue-700 text-center dark:focus:ring-blue-800">
-                    Sign in
-                </button>
-                </a>
                 <button data-collapse-toggle="navbar-cta" type="button"
                     class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-green-800 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                     aria-controls="navbar-cta" aria-expanded="false">
@@ -176,6 +169,7 @@
             </form>
         </div> -->
 
+        <a href="./Website/pages/Login-Signin/index.html">
         <button class="Explore" id="show_login"><svg
             height="24"
             width="24"
@@ -188,7 +182,7 @@
               fill="currentColor"
             ></path>
           </svg>
-          <span>Explore Us</span></button>
+          <span>Explore Us</span></button></a>
         <div class="crousel">
             <div class="slider-container">
                 <div class="slider">

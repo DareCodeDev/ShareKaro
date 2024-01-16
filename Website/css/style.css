@@ -8,15 +8,15 @@
   color: #0081fe;
   background-color: #fff;
 }
-
-html{
-  background-color: var(--s-main);
-  scroll-behavior: smooth;
-}
 :root {
   --main: #0081fe;
   --s-main: rgb(197, 216, 255);
   --text: #1f2937;
+}
+
+html{
+  background-color: var(--s-main);
+  scroll-behavior: smooth;
 }
 
 ::-webkit-scrollbar {

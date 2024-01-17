@@ -35,7 +35,8 @@ SIGNIN.addEventListener("click", (e) =>{
     // Signed in 
     const user = userCredential.user;
     alert("Sign in complete with existing user!");
-    alert(user.email);
+    alert("Welcome back!✨");
+    window.location.replace("http://127.0.0.1:5500/main.html");
     // ...
   })
   .catch((error) => {

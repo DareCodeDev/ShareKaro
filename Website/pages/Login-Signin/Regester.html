@@ -17,13 +17,13 @@
           <h2 class="title">Sign in</h2>
           <div class="input-field">
             <i class="fas fa-user"></i>
-            <input type="text" placeholder="Username" />
+            <input type="Email" id="SiEmail" placeholder="Email" />
           </div>
           <div class="input-field">
             <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Password" />
+            <input type="password" id="SiPassword" placeholder="Password" />
           </div>
-          <input type="submit" value="Login" class="btn solid"/>
+          <input type="button" id="SignIn" class="btn solid" value="Sign in"/>
           <p class="social-text">Or Sign in with social platforms</p>
           <div class="social-media">
             <a href="#" class="social-icon">
@@ -44,17 +44,17 @@
           <h2 class="title">Sign up</h2>
           <div class="input-field">
             <i class="fas fa-user"></i>
-            <input type="text" placeholder="Username" />
+            <input type="text" id="SuName" placeholder="Username" />
           </div>
           <div class="input-field">
             <i class="fas fa-envelope"></i>
-            <input type="email" placeholder="Email" />
+            <input type="email" id="SuEmail" placeholder="Email" />
           </div>
           <div class="input-field">
             <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Password" />
+            <input type="password" id="SuPassword" placeholder="Password" />
           </div>
-          <input type="submit" class="btn" value="Sign up"/>
+          <input type="button" id="SignUp" class="btn" value="Sign up"/>
           <p class="social-text">Or Sign up with social platforms</p>
           <div class="social-media">
             <a href="#" class="social-icon">
@@ -103,8 +103,8 @@
       </div>
     </div>
   </div>
-
-  <script src="app.js"></script>
+  <script src="Register.js"></script>
 </body>
+<script type="module" src="firebase.js"></script>
 
 </html>

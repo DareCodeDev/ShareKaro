@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="Regester.css"/>
+  <link rel="stylesheet" href="Regester.css" />
   <title>Sign in & Sign up Form</title>
 </head>
 
@@ -17,19 +17,19 @@
           <h2 class="title">Sign in</h2>
           <div class="input-field">
             <i class="fas fa-user"></i>
-            <input type="Email" id="SiEmail" placeholder="Email"/>
+            <input type="Email" id="SiEmail" placeholder="Email" />
           </div>
           <div class="input-field">
             <i class="fas fa-lock"></i>
-            <input type="password" id="SiPassword" placeholder="Password"/>
+            <input type="password" id="SiPassword" placeholder="Password" />
           </div>
-          <input type="button" id="SignIn" class="btn solid" value="Sign in"/>
+          <input type="button" id="SignIn" class="btn solid" value="Sign in" />
           <p class="social-text">Or Sign in with social platforms</p>
           <div class="social-media">
             <a href="#" class="social-icon">
               <i class="fab fa-facebook-f"></i>
             </a>
-            <a href="#" class="social-icon">
+            <a href="#" class="social-icon" id="Google-btn1">
               <i class="fab fa-google"></i>
             </a>
             <a href="#" class="social-icon">
@@ -44,23 +44,23 @@
           <h2 class="title">Sign up</h2>
           <div class="input-field">
             <i class="fas fa-user"></i>
-            <input type="text" id="SuName" placeholder="Username"/>
+            <input type="text" id="SuName" placeholder="Username" />
           </div>
           <div class="input-field">
             <i class="fas fa-envelope"></i>
-            <input type="email" id="SuEmail" placeholder="Email"/>
+            <input type="email" id="SuEmail" placeholder="Email" />
           </div>
           <div class="input-field">
             <i class="fas fa-lock"></i>
-            <input type="password" id="SuPassword" placeholder="Password"/>
+            <input type="password" id="SuPassword" placeholder="Password" />
           </div>
-          <input type="button" id="SignUp" class="btn" value="Sign up"/>
+          <input type="button" id="SignUp" class="btn" value="Sign up" />
           <p class="social-text">Or Sign up with social platforms</p>
           <div class="social-media">
             <a href="#" class="social-icon">
               <i class="fab fa-facebook-f"></i>
             </a>
-            <a href="#" class="social-icon">
+            <a href="#" class="social-icon Google-btn" id="Google-btn2">
               <i class="fab fa-google"></i>
             </a>
             <a href="#" class="social-icon">
@@ -105,6 +105,6 @@
   </div>
   <script src="Register.js"></script>
 </body>
-<script type="module" src="firebase.js"></script>
+<script type="module" src="./MAIN-PAGE/javascript/firebase.js"></script>
 
 </html>

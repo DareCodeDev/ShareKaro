@@ -151,11 +151,11 @@ GoogleSign2.addEventListener("click", (e) => {
 });
 
 // Signout Button
-const SignoutBtn = document.getElementById("Signout-btn");
-SignoutBtn.addEventListener("click", (e) => {
-  // e.preventDefault();
-  sessionStorage.clear();
-  localStorage.clear();
-  window.location.href = 'https://darecodedev.github.io/ShareKaro/';
+// const SignoutBtn = document.getElementById("Signout-btn");
+// SignoutBtn.addEventListener("click", (e) => {
+//   // e.preventDefault();
+//   sessionStorage.clear();
+//   localStorage.clear();
+//   window.location.href = 'https://darecodedev.github.io/ShareKaro/';
     
-});
+// });

@@ -6,6 +6,7 @@ import {
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
+  signOut,
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -147,4 +148,14 @@ GoogleSign2.addEventListener("click", (e) => {
       const credential = GoogleAuthProvider.credentialFromError(error);
       // ...
     });
+});
+
+// Signout Button
+const SignoutBtn = document.getElementById("Signout-btn");
+SignoutBtn.addEventListener("click", (e) => {
+  // e.preventDefault();
+  sessionStorage.clear();
+  localStorage.clear();
+  window.location.href = 'https://darecodedev.github.io/ShareKaro/';
+    
 });

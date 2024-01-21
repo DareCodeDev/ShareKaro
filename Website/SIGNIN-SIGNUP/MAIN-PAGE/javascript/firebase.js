@@ -41,10 +41,19 @@ SIGNIN.addEventListener("click", (e) => {
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed in
+      const username = document.getElementById("SuName").value;
       const user = userCredential.user;
       alert("Sign in complete, Welcome back!✨");
-      window.location.replace("./MAIN-PAGE/main.html");
-      // ...
+      // Encode user data as URL parameters
+      const userDataParams = new URLSearchParams({
+        displayName: username,
+        email: user.email,
+        photoURL: 'https://img.freepik.com/premium-vector/people-ribbon-logo-modern-leadership-logo-human-charity-logo_327835-2463.jpg',
+      });
+
+      // Redirect to the new HTML page with URL parameters
+      window.location.href = `./MAIN-PAGE/main.html?${userDataParams.toString()}`;
+
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -150,12 +159,12 @@ GoogleSign2.addEventListener("click", (e) => {
     });
 });
 
-// Signout Button
 // const SignoutBtn = document.getElementById("Signout-btn");
 // SignoutBtn.addEventListener("click", (e) => {
-//   // e.preventDefault();
-//   sessionStorage.clear();
-//   localStorage.clear();
-//   window.location.href = 'https://darecodedev.github.io/ShareKaro/';
-    
+//     // e.preventDefault();
+//     // sessionStorage.clear();
+//     // localStorage.clear();
+//     // window.close();
+// window.open('https://darecodedev.github.io/ShareKaro/');
+
 // });

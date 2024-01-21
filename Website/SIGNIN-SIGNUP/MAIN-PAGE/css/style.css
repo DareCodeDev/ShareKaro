@@ -18,8 +18,7 @@
   background-color: #ffffff;
 }
 
-html{
-  background-color: var(--s-main);
+html {
   scroll-behavior: smooth;
 }
 
@@ -47,7 +46,7 @@ html{
 .nvbar {
   background-color: var(--main);
   z-index: 0;
-  box-shadow: 0px 325px 430px -415px #111;   
+  box-shadow: 0px 325px 430px -415px #111;
 }
 
 .listitem {
@@ -57,39 +56,43 @@ html{
   font-weight: 400;
 }
 
-.listitem li a:hover{
+.listitem li a:hover {
   background-color: var(--main);
   color: #fff;
 }
 
-.hammenu{
+.hammenu {
   z-index: 1;
 }
 
 #navbar-cta ul li a {
-  color: #18272F;
+  color: #18272f;
   position: relative;
   text-decoration: none;
 }
 
 #navbar-cta ul li a::before {
-  content: '';
+  content: "";
   position: absolute;
   width: 100%;
   height: 4px;
   border-radius: 4px;
-  background-color: #18272F;
+  background-color: #18272f;
   bottom: 0;
   left: 0;
   transform-origin: right;
   transform: scaleX(0);
-  transition: transform .3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 
 #navbar-cta ul li a:hover::before {
   transform-origin: left;
   transform: scaleX(1);
 }
+
+/*````````````````````````````````````````````````````````` Dark-Light Switch `````````````````````````````````````````````````````````*/
+
+
 
 /*````````````````````````````````````````````````````````` Container1 Styling ````````````````````````````````````````````````````````*/
 
@@ -114,7 +117,7 @@ html{
   align-items: flex-end;
 }
 
-.container1 h1{
+.container1 h1 {
   color: var(--text);
 }
 
@@ -214,14 +217,14 @@ html{
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 
 .slider-item img {
   height: 150px;
   width: 150px;
   border-radius: 50%;
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
 .slider-item img:hover {
@@ -269,7 +272,7 @@ html{
   color: #fff;
   margin: 0 10px;
   display: inline-block;
-  transition: .5s;
+  transition: 0.5s;
 }
 .social-icon__link:hover {
   transform: translateY(-10px);
@@ -342,7 +345,7 @@ html{
 }
 
 #foot .footer ul li a::before {
-  content: '';
+  content: "";
   position: absolute;
   width: 100%;
   height: 4px;
@@ -352,7 +355,7 @@ html{
   left: 0;
   transform-origin: right;
   transform: scaleX(0);
-  transition: transform .3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 
 #foot .footer ul li a:hover::before {
@@ -398,26 +401,26 @@ html{
     background-color: var(--main);
     color: var(--text);
   }
-  .container1 .headline{
+  .container1 .headline {
     font-size: 30px;
     height: 20%;
   }
-  .headline span{
+  .headline span {
     padding-left: 10px;
   }
-  .container1 p{
+  .container1 p {
     font-size: medium;
   }
-  .container1 .search{
+  .container1 .search {
     width: 85%;
   }
-  .container1 .crousel{
+  .container1 .crousel {
     width: 100%;
     height: 25%;
     background-color: var(--s-main);
     margin-top: 12vh;
   }
-  .slider-container{
+  .slider-container {
     width: 100%;
     background-color: var(--s-main);
   }

@@ -45,8 +45,11 @@ html {
 
 .nvbar {
   background-color: var(--main);
-  z-index: 0;
+  z-index: 99;
   box-shadow: 0px 325px 430px -415px #111;
+  position: sticky;
+  top: 0;           /* IF YOU USE "Position: sticky;" THEN YOU MUST HAVE TO USE THIS "top: 0;"*/
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 .listitem {
